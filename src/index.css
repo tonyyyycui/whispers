@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@300;400;500&display=swap');
+
+@layer base {
+  :root {
+    /* Soft pastel palette */
+    --background: 45 30% 97%;
+    --foreground: 30 15% 20%;
+
+    --card: 45 25% 96%;
+    --card-foreground: 30 15% 20%;
+
+    --popover: 45 30% 97%;
+    --popover-foreground: 30 15% 20%;
+
+    /* Warm cream primary */
+    --primary: 30 20% 35%;
+    --primary-foreground: 45 30% 97%;
+
+    /* Pale blush */
+    --secondary: 15 40% 93%;
+    --secondary-foreground: 30 20% 30%;
+
+    /* Muted lavender */
+    --muted: 270 20% 92%;
+    --muted-foreground: 270 10% 45%;
+
+    /* Light sage accent */
+    --accent: 120 15% 90%;
+    --accent-foreground: 120 15% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 30 20% 50%;
+
+    --radius: 0.25rem;
+
+    /* Custom pastel colors */
+    --blush: 15 40% 93%;
+    --lavender: 270 20% 92%;
+    --sage: 120 15% 90%;
+    --sky: 200 30% 92%;
+    --cream: 45 30% 97%;
+    --cream-dark: 40 25% 94%;
+
+    /* Typography */
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Karla', system-ui, sans-serif;
+
+    /* Sidebar - keeping defaults */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 30 10% 8%;
+    --foreground: 45 20% 90%;
+    --card: 30 10% 10%;
+    --card-foreground: 45 20% 90%;
+    --popover: 30 10% 8%;
+    --popover-foreground: 45 20% 90%;
+    --primary: 45 25% 85%;
+    --primary-foreground: 30 10% 8%;
+    --secondary: 15 15% 15%;
+    --secondary-foreground: 15 30% 85%;
+    --muted: 270 10% 15%;
+    --muted-foreground: 270 15% 65%;
+    --accent: 120 10% 15%;
+    --accent-foreground: 120 15% 80%;
+    --border: 30 10% 18%;
+    --input: 30 10% 18%;
+    --ring: 45 20% 50%;
+    --blush: 15 15% 15%;
+    --lavender: 270 10% 15%;
+    --sage: 120 10% 15%;
+    --sky: 200 15% 15%;
+    --cream: 30 10% 8%;
+    --cream-dark: 30 10% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  /* Poetry text styling */
+  .poetry-text {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    line-height: 2;
+    letter-spacing: 0.02em;
+  }
+
+  .poetry-title {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .section-marker {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  /* Soft divider */
+  .divider-soft {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--border)) 20%,
+      hsl(var(--border)) 80%,
+      transparent 100%
+    );
+  }
+
+  /* Decorative accent line */
+  .accent-line {
+    width: 40px;
+    height: 1px;
+    background: hsl(var(--muted-foreground) / 0.3);
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Background colors */
+  .bg-blush {
+    background-color: hsl(var(--blush));
+  }
+
+  .bg-lavender {
+    background-color: hsl(var(--lavender));
+  }
+
+  .bg-sage {
+    background-color: hsl(var(--sage));
+  }
+
+  .bg-sky {
+    background-color: hsl(var(--sky));
+  }
+
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .bg-cream-dark {
+    background-color: hsl(var(--cream-dark));
+  }
+}
